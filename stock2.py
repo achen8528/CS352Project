@@ -30,7 +30,7 @@ def save_sp500_tickers():
     return tickers
 
 tickers = save_sp500_tickers()
-
+print(tickers)
 def linearRegression(ticker):
     style.use('ggplot')
     start = "2018-02-23"
@@ -96,9 +96,10 @@ while True:
         movingAverage(temp)
     else:
         var = input("Not a ticker, try again: ")
-        temp = "WIKI/" + var
-        linearRegression(temp)
-        movingAverage(temp)
+        if var in tickers:
+            temp = "WIKI/" + var
+            linearRegression(temp)
+            movingAverage(temp)
     
 
 
